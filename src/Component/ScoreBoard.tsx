@@ -29,7 +29,21 @@ export const ScoreBoard =()=>{
             justifyContent:'space-around',
             padding:'20px',
             fontSize:'24px'
-        }
+        },
+        textInput : {
+            flexGrow: 1,
+            borderWidth: '0 0 1px 0',
+            margin: '15px 10px 15px 15px',
+            padding: '10px',
+            borderRadius: '5px',
+            backgroundColor: '#ac4444',
+            borderStyle: 'none',
+            textShadow: 'none',
+            textTransform: 'uppercase',
+            color: '#f5eded',
+            letterSpacing: '2px',
+            outline: 'none',
+          }
 
     }
     return(
@@ -51,6 +65,36 @@ export const ScoreBoard =()=>{
                 </div>
             </div>
             <div style={style.footer}>Winner</div>
+            <div style={style.footer}>   <form >
+                <input 
+                    type="text"
+                    placeholder="Enter a player name"
+                    style={{ flexGrow: 1,
+                        borderWidth: '0 0 1px 0',
+                        margin: '15px 10px 15px 15px',
+                        padding: '10px',
+                        borderRadius: '5px',
+                        backgroundColor: '#ac4444',
+                        borderStyle: 'none',
+                        textShadow: 'none',
+                        textTransform: 'uppercase',
+                        color: '#f5eded',
+                        letterSpacing: '2px',
+                        outline: 'none',}}
+                />
+                <input 
+                    type="submit"
+                    value="Add Player"
+                    style={{display: 'block',
+                        fontSize: '.6em',
+                        margin: '15px 15px 15px 0', 
+                        padding: '10px',
+                        backgroundColor: '#ac4444',
+                        borderRadius: '5px',
+                        border: 'none',
+                        color: '#fff'}}
+                />
+            </form></div>
         </div>
     )
 }
