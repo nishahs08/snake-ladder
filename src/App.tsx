@@ -1,5 +1,6 @@
 import React, { useState ,useEffect} from 'react';
 import { GameBoard } from './Component/GameBoard';
+import { ScoreBoard } from './Component/ScoreBoard';
 
 const ladders = [
   { tail: 4, head: 14 },
@@ -41,7 +42,10 @@ function App() {
   let count=5;
 
   return (
+    <div style={{display:'flex',justifyContent:'space-around'}}>
   <GameBoard ladders={ladders} snakes={snakes} playerA={PlayerA}/>
+  <ScoreBoard/>
+  </div>
   );
 }
 
