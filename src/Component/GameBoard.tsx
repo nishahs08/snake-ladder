@@ -3,7 +3,8 @@ import { ladder, snake } from '../types'
 interface GameBoardProps {
   snakes: snake[],
   ladders: ladder[],
-  playerA:number
+  playerA:number,
+  playerB:number
 }
 
 const width = 800
@@ -24,22 +25,23 @@ const style = {
     flexWrap: 'wrap',
   },
 }
-export const GameBoard: React.FC<GameBoardProps> = ({ snakes, ladders ,playerA}) => {
-
-  const playerB = 78
+export const GameBoard: React.FC<GameBoardProps> = ({ snakes, ladders ,playerA,playerB}) => {
+let counter=0
   let rowCheck = 1
   let tiles: number[] = []
   for (let i = 100; i > 0; i = i - 10) {
     if (rowCheck % 2 !== 0) {
       for (let j = i; j > i - 10; j--) {
-        tiles[rowCheck++] = j
+        tiles[counter++] = j
       }
     } else {
-      for (let k = i - 9; k < i; k++) {
-        tiles[rowCheck++] = k
+      for (let k = i - 9; k <=i; k++) {
+        tiles[counter++] = k
       }
     }
+    rowCheck++;
   }
+  console.log(tiles)
 
   return (
     <>
@@ -75,38 +77,13 @@ export const GameBoard: React.FC<GameBoardProps> = ({ snakes, ladders ,playerA})
                       : '#DDC9A5',
                 }}
               >
-                {tile}
-                {playerA === tile ?
-                   <div
-                   style={{
-                     width: `${width / 10 - 30}px`,
-                     height: `${width / 10 - 30}px`,
-                     position: 'relative',
-                 
-                     margin: 'auto',
-                     display: 'flex',
-                     alignItems: 'center',
-                     justifyContent: 'center',
-                   }}
-                 >
-                   Player_A
-                 </div>
-                 : playerB === tile ?
-                 <div
-                 style={{
-                   width: `${width / 10 - 30}px`,
-                   height: `${width / 10 - 30}px`,
-                   position: 'relative',
-                  
-                   margin: 'auto',
-                   display: 'flex',
-                   alignItems: 'center',
-                   justifyContent: 'center',
-                 }}
-               >
-                 Player_B
-               </div>
-                   : ''}
+                  { playerA === tile
+                      ? 'player_A'
+                      : playerB === tile
+                      ? 'player_B'
+                      : tile}
+              
+         
                 {isSnake ? (
                   <div
                     style={{
