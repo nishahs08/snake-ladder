@@ -1,14 +1,14 @@
-export interface ladder {
-    tail: number,
-    head: number
+export interface ILadder {
+	tail: number;
+	head: number;
 }
 
-export interface snake {
-    tail: number,
-    head: number
+export interface ISnake {
+	tail: number;
+	head: number;
 }
 
-export type player = {
-    name: string,
-    curr_position: number
+export interface IPlayer {
+	name: string;
+	curr_position: number;
 }
