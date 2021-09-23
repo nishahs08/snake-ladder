@@ -47,6 +47,7 @@ export const Dice: React.FC<DiceProps> = ({ dice, setDice, currentPlayer, setCur
         }
     }
     return (
+        <>
         <div style={style.container}>
             <div>
                 <div style={{ ...style.dice, flexWrap: 'wrap' }}>
@@ -57,9 +58,9 @@ export const Dice: React.FC<DiceProps> = ({ dice, setDice, currentPlayer, setCur
             <div>
                 <button onClick={handleRoll}>Roll</button>
             </div>
-
-            {dice === 6 && <div><h3>One more chance</h3></div>}
-
         </div>
+        {dice === 6 && <div><h3>One more chance</h3></div>}
+
+        </>
     )
 }

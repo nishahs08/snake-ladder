@@ -126,7 +126,7 @@ function App() {
 
         {winner && (
           <div>
-            <h4>{winner.toUpperCase()} IS WINNER</h4>
+            <h4>{winner === 'A' ? PlayerA.name : PlayerB.name} IS WINNER</h4>
           </div>
         )}
       </div>
