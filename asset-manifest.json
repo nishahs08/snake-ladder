@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/snake-ladder/static/css/main.d7607437.chunk.css",
+    "main.js": "/snake-ladder/static/js/main.d0dff5e9.chunk.js",
+    "main.js.map": "/snake-ladder/static/js/main.d0dff5e9.chunk.js.map",
+    "runtime-main.js": "/snake-ladder/static/js/runtime-main.f9f14c3e.js",
+    "runtime-main.js.map": "/snake-ladder/static/js/runtime-main.f9f14c3e.js.map",
+    "static/js/2.de159766.chunk.js": "/snake-ladder/static/js/2.de159766.chunk.js",
+    "static/js/2.de159766.chunk.js.map": "/snake-ladder/static/js/2.de159766.chunk.js.map",
+    "static/js/3.8e8da0fa.chunk.js": "/snake-ladder/static/js/3.8e8da0fa.chunk.js",
+    "static/js/3.8e8da0fa.chunk.js.map": "/snake-ladder/static/js/3.8e8da0fa.chunk.js.map",
+    "index.html": "/snake-ladder/index.html",
+    "static/css/main.d7607437.chunk.css.map": "/snake-ladder/static/css/main.d7607437.chunk.css.map",
+    "static/js/2.de159766.chunk.js.LICENSE.txt": "/snake-ladder/static/js/2.de159766.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f9f14c3e.js",
+    "static/js/2.de159766.chunk.js",
+    "static/css/main.d7607437.chunk.css",
+    "static/js/main.d0dff5e9.chunk.js"
+  ]
+}
