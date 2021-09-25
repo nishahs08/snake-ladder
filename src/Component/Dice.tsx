@@ -2,7 +2,7 @@ interface DiceProps {
 	dice: number;
 }
 export const Dice: React.FC<DiceProps> = ({ dice }) => {
-	const numberOnDice = 5;
+
 	const style = {
 		container: {
 			backgroundColor: '#c74545',

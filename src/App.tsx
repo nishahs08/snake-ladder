@@ -28,12 +28,12 @@ const snakes = [
 function App() {
 	const [playerA, setPlayerA] = useState<IPlayer>({
 		name: 'A',
-		curr_position: 0,
+		curr_position: 2,
 		color: '#f89580',
 	});
 	const [playerB, setPlayerB] = useState<IPlayer>({
 		name: 'B',
-		curr_position: 0,
+		curr_position: 2,
 		color: ' #80ffea',
 	});
 	const [dice, setDice] = useState<number>(0);
@@ -133,7 +133,7 @@ function App() {
 				<Dice dice={dice} />
 
 				<div style={{ width: '100%', margin: 'auto', textAlign: 'center' }}>
-					<button onClick={restart}>
+					<button onClick={restart} style={{cursor:'pointer'}}>
 						<h3>Restart Game</h3>
 					</button>
 				</div>

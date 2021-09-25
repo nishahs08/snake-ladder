@@ -74,7 +74,8 @@ export const ScoreBoard: React.FC<ScoreBoardProps> = ({
 			height:'50px',
 			background:' #c74545',
 			color:'#fff',
-			border:'2px solid #fff'
+			border:'2px solid #fff',
+			cursor:'pointer'
 		}
 	};
     const handleRoll = () => {

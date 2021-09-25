@@ -1,4 +1,4 @@
-import { useState } from "react"
+
 import tick from "../tick.png"
 const boardColor : string[]= [ '#AABFC9','#DFECFE','#eae8e8','#F3f3f3',' #6A737D','#FFFFFF'];
 const player :string[]=['#3A66D1','#22863a','#44475A',' #FF79C5','#ffd866','#ff6188']
@@ -22,7 +22,8 @@ const style={
         width:'40px',
         height:'40px',
         radius:'10px',
-        border:'.5px solid #E7E7E8'
+        border:'.5px solid #E7E7E8',
+        cursor:'pointer'
     },
     icon:{
         width:'100%',
@@ -49,19 +50,19 @@ export const CustomiseBoard :React.FC<CustomiseBoardProps>= ({selectedBoardColor
             <div style={style.colorPalleteWrapper}>
                 <div>Choose Board Color</div>
                 <div style={style.colorPallete}>
-                    {boardColor.map((color)=><div style={{...style.colorBox,backgroundColor:color}} onClick={()=>setSelectedBoardColor(color)}>{color === selectedBoardColor && <img src={tick} style={style.icon}/>}</div>)}      
+                    {boardColor.map((color)=><div style={{...style.colorBox,backgroundColor:color}} onClick={()=>setSelectedBoardColor(color)}>{color === selectedBoardColor && <img src={tick} style={style.icon} alt=''/>}</div>)}      
                 </div>
             </div>
             <div style={style.colorPalleteWrapper}>
                 <div>Choose Player A Color</div>
                 <div style={style.colorPallete}>
-                    {colorsAvailableForPlayerA.map((color)=><div style={{...style.colorBox,backgroundColor:color}} onClick={()=>setSelectedColorForPlayerA(color)}>{color === selectedColorForPlayerA && <img src={tick} style={style.icon}/>}</div>)}      
+                    {colorsAvailableForPlayerA.map((color)=><div style={{...style.colorBox,backgroundColor:color}} onClick={()=>setSelectedColorForPlayerA(color)}>{color === selectedColorForPlayerA && <img src={tick} style={style.icon} alt=''/>}</div>)}      
                 </div>
             </div>
             <div style={style.colorPalleteWrapper}>
                 <div>Choose Player B Color</div>
                 <div style={style.colorPallete}>
-                    {colorsAvailableForPlayerB.map((color)=><div style={{...style.colorBox,backgroundColor:color}} onClick={()=>setSelectedColorForPlayerB(color)}>{color === selectedColorForPlayerB && <img src={tick} style={style.icon}/>}</div>)}      
+                    {colorsAvailableForPlayerB.map((color)=><div style={{...style.colorBox,backgroundColor:color}} onClick={()=>setSelectedColorForPlayerB(color)}>{color === selectedColorForPlayerB && <img src={tick} style={style.icon} alt=''/>}</div>)}      
                 </div>
             </div>
         </div>
