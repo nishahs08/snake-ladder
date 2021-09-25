@@ -5,12 +5,18 @@ interface ScoreBoardProps {
 	playerA: IPlayer;
 	playerB: IPlayer;
 	lastChance: string;
+    dice: number;
+	setDice: (value: number) => void;
+	setCurrentPlayer: (value: string) => void;
 }
 export const ScoreBoard: React.FC<ScoreBoardProps> = ({
 	editPlayerName,
 	playerA,
 	playerB,
 	lastChance,
+    dice,
+    setDice,
+    setCurrentPlayer
 }) => {
 	const style = {
 		header: {
@@ -32,14 +38,16 @@ export const ScoreBoard: React.FC<ScoreBoardProps> = ({
 			display: 'flex',
 		},
 		footer: {
-			backgroundColor: '#c74545',
+			backgroundColor: ' #c74545',
 			color: '#fff',
 		},
 		info: {
 			display: 'flex',
 			justifyContent: 'space-around',
+			alignItems:'center',
 			padding: '20px',
 			fontSize: '24px',
+			height:'50px',
 		},
 		textInput: {
 			flexGrow: 1,
@@ -54,7 +62,29 @@ export const ScoreBoard: React.FC<ScoreBoardProps> = ({
 			color: '#f5eded',
 			letterSpacing: '2px',
 			outline: 'none',
+			
 		},
+		playerColor:{
+			width:'30px',
+			height:'30px',
+
+		},
+		btn:{
+			width:'100px',
+			height:'50px',
+			background:' #c74545',
+			color:'#fff',
+			border:'2px solid #fff'
+		}
+	};
+    const handleRoll = () => {
+		let x = Math.floor(Math.random() * 6 + 1);
+		setDice(x);
+		if (dice !== 6) {
+			lastChance=== 'A' ? setCurrentPlayer('B') : setCurrentPlayer('A');
+		} else {
+			lastChance=== 'A' ? setCurrentPlayer('A') : setCurrentPlayer('B');
+		}
 	};
 	return (
 		<div>
@@ -93,14 +123,18 @@ export const ScoreBoard: React.FC<ScoreBoardProps> = ({
 						value={playerA.name}
 						onChange={(e) => editPlayerName('A', e.target.value)}
 					/>
+						<div style={{...style.playerColor,background:playerA.color}}></div>
 					<div>{playerA.curr_position}</div>
+                    <div style={{width:'100px'}}> { lastChance==='B'  && <button style={style.btn} onClick={handleRoll} >ROLL</button>}</div>
 				</div>
 				<div style={style.info}>
 					<input
 						value={playerB.name}
 						onChange={(e) => editPlayerName('B', e.target.value)}
 					/>
+					<div style={{...style.playerColor,background:playerB.color}}></div>
 					<div>{playerB.curr_position}</div>
+                    <div style={{width:'100px'}}> { lastChance==='A' && <button style={style.btn} onClick={handleRoll}>ROLL</button>}</div>
 				</div>
 			</div>
 		</div>

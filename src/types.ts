@@ -11,4 +11,5 @@ export interface ISnake {
 export interface IPlayer {
 	name: string;
 	curr_position: number;
+	color:string
 }

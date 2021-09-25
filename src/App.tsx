@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { CustomiseBoard } from './Component/CustomiseBoard';
 import { Dice } from './Component/Dice';
 import { GameBoard } from './Component/GameBoard';
 import { ScoreBoard } from './Component/ScoreBoard';
@@ -28,14 +29,19 @@ function App() {
 	const [playerA, setPlayerA] = useState<IPlayer>({
 		name: 'A',
 		curr_position: 0,
+		color: '#f89580',
 	});
 	const [playerB, setPlayerB] = useState<IPlayer>({
 		name: 'B',
 		curr_position: 0,
+		color: ' #80ffea',
 	});
 	const [dice, setDice] = useState<number>(0);
-	const [currentPlayer, setCurrentPlayer] = useState<string>('');
+	const [currentPlayer, setCurrentPlayer] = useState<string>('B');
 	const [winner, setWinner] = useState('');
+
+	const [selectedBoardColor, setSelectedBoardColor] = useState<string>('#F3f3f3');
+
 
 	const moveOnBoard = () => {
 		let next_position =
@@ -71,13 +77,15 @@ function App() {
 		setPlayerA({
 			name: 'A',
 			curr_position: 0,
+			color: '#f89580',
 		});
 		setPlayerB({
 			name: 'B',
 			curr_position: 0,
+			color: ' #80ffea',
 		});
 		setDice(0);
-		setCurrentPlayer('');
+		setCurrentPlayer('B');
 		setWinner('');
 	};
 
@@ -90,10 +98,25 @@ function App() {
 			<GameBoard
 				ladders={ladders}
 				snakes={snakes}
-				playerA={playerA.curr_position}
-				playerB={playerB.curr_position}
+				playerA={playerA}
+				playerB={playerB}
+				tileColor={selectedBoardColor}
 			/>
 			<div style={{ display: 'flex', flexDirection: 'column' }}>
+			<div style={{ width: '100%', margin: 'auto', textAlign: 'center' }}>
+				<CustomiseBoard
+					selectedBoardColor={selectedBoardColor}
+					setSelectedBoardColor={(value:string)=>setSelectedBoardColor(value)}
+					selectedColorForPlayerA={playerA.color}
+					selectedColorForPlayerB={playerB.color}
+					setSelectedColorForPlayerA ={
+						(value:string)=>setPlayerA({...playerA,color:value})
+					}
+					setSelectedColorForPlayerB ={
+						(value:string)=>setPlayerB({...playerB,color:value})
+					}
+				/>
+				</div>
 				<ScoreBoard
 					playerA={playerA}
 					playerB={playerB}
@@ -103,13 +126,11 @@ function App() {
 							: setPlayerB({ ...playerB, name: newName })
 					}
 					lastChance={currentPlayer}
-				/>
-				<Dice
 					dice={dice}
 					setDice={setDice}
-					currentPlayer={currentPlayer}
 					setCurrentPlayer={setCurrentPlayer}
 				/>
+				<Dice dice={dice} />
 
 				<div style={{ width: '100%', margin: 'auto', textAlign: 'center' }}>
 					<button onClick={restart}>

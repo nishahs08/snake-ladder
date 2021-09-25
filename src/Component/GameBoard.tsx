@@ -1,10 +1,11 @@
-import { ILadder, ISnake } from '../types';
+import { ILadder, IPlayer, ISnake } from '../types';
 
 interface GameBoardProps {
 	snakes: ISnake[];
 	ladders: ILadder[];
-	playerA: number;
-	playerB: number;
+	playerA: IPlayer;
+	playerB: IPlayer;
+	tileColor:string
 }
 
 const width = 800;
@@ -25,7 +26,7 @@ const style = {
 		flexWrap: 'wrap',
 	},
 };
-export const GameBoard: React.FC<GameBoardProps> = ({ snakes, ladders, playerA, playerB }) => {
+export const GameBoard: React.FC<GameBoardProps> = ({ snakes, ladders, playerA, playerB ,tileColor}) => {
 	let counter = 0;
 	let rowCheck = 1;
 	let tiles: number[] = [];
@@ -70,16 +71,16 @@ export const GameBoard: React.FC<GameBoardProps> = ({ snakes, ladders, playerA, 
 									height: `${width / 10 - 2}px`,
 									border: '.2px solid #000',
 									backgroundColor:
-										playerA === tile
-											? '#FFE459'
-											: playerB === tile
-											? '#8FC1D4'
-											: '#DDC9A5',
+										playerA.curr_position === tile
+											? playerA.color
+											: playerB.curr_position === tile
+											? playerB.color
+											: tileColor,
 								}}
 							>
-								{playerA === tile
+								{playerA.curr_position === tile
 									? 'player_A'
-									: playerB === tile
+									: playerB.curr_position === tile
 									? 'player_B'
 									: tile}
 
@@ -89,7 +90,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({ snakes, ladders, playerA, 
 											width: `${width / 10 - 30}px`,
 											height: `${width / 10 - 30}px`,
 											position: 'relative',
-											backgroundColor: '#FE4033',
+											backgroundColor: '#ff5555',
 											margin: 'auto',
 											display: 'flex',
 											alignItems: 'center',
@@ -104,7 +105,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({ snakes, ladders, playerA, 
 											width: `${width / 10 - 30}px`,
 											height: `${width / 10 - 30}px`,
 											position: 'relative',
-											backgroundColor: '#305221',
+											backgroundColor: '#a9dc76',
 											margin: 'auto',
 											display: 'flex',
 											alignItems: 'center',
