@@ -2,7 +2,7 @@
 	"name": "snake-ladder",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://nishahs08.github.io/snake-ladder/",
+	"homepage": "https://nishahs08.github.io/snake-ladder",
 
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.14.1",
